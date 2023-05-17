@@ -1,2 +1,4 @@
 sudo docker build -t abc .
 sudo docker run -d -p 2020:7667 abc
+sudo docker pull nginx
+sudo docker run --name docker-ngnixsvr -d -p 8080:80 nginx:latest
