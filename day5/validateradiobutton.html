@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script>
+                     var n;
+                     var d;
+                    var  data;
+                  function validateName(){
+                    n=document.getElementById("id1").value;
+                    if( (n==="") || (n.trim().length === 0)){
+                          document.getElementById("err1").innerHTML="Name can not be only spaces or blank";
+                          return false;
+                    }else{
+                         document.getElementById("err1").innerHTML="";     
+                         return true;     
+                    }
+                  }
+
+                  function validateDegree(){
+
+                    d=document.getElementsByName("Degree");
+
+                      for(var i = 0;i<d.length;i++){
+                            
+                            if(d[i].checked){
+                              data=d[i].value;
+                              document.getElementById("err2").innerHTML="";
+                              return true;
+                            }
+                            
+                      }
+                      document.getElementById("err2").innerHTML="Please select One Degree";
+                              return false;
+                    
+
+                  }
+
+
+
+                    function validateData(){
+                        var flag = validateName();
+                        var flag1=validateDegree();
+
+                        if(flag && flag1){
+                          var str ="Name: "+n+"<br> Degree: "+data;    
+                          document.getElementById("mydiv").innerHTML=str;
+                        }else{
+
+                        }
+                    }
+
+          </script>
+</head>
+<body>
+          <form name="frm">
+       Enter name: <input type="text" name="ename" id="id1"><span style="color: red;">*</span><span id="err1" style="color: red;"></span><br>
+       Degree : <input type="radio" name="Degree" id="d1" value="BE"><label for="d1">BE</label>
+                <input type="radio" name="Degree" id="d2" value="BTECH"><label for="d2">BTECH</label>
+                <input type="radio" name="Degree" id="d3" value="MTECH"><label for="d3">MTECH</label>&nbsp;&nbsp;&nbsp;&nbsp;<span id="err2" style="color: red;"></span><br>
+             <button type="button" name="btn" id="btn" onclick="validateData()">Show Data</button>
+
+          </form>
+          <div id="mydiv">
+
+          </div>
+</body>
+</html>

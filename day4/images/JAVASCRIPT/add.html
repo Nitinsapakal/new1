@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <script>
+                    function dis(){
+                              var aa=parseInt(document.getElementById("nu1").value);
+                              var bb=parseInt(document.getElementById("nu2").value);
+                              var store=aa*bb;
+
+                              document.getElementById("res5").value=store;
+                              document.getElementById("my11").innerHTML="Addition"+store;
+
+
+                    }
+
+
+          </script>
+</head>
+<body>
+          <form name="frm">
+                    Num1: <input type="text" name="num1" id="nu1"><br>
+                    Num2: <input type="text" name="num2" id="nu2"><br>
+                    res: <input type="text" name="res" id="res5" disabled><br>
+                    
+                    <button type="button"  name="b1" id="b1" onclick="dis()">
+Add Numbers
+                    </button>
+
+          </form>
+          <div id="my11">
+
+          </div>
+          
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script>        
+                          var name;
+                          var str; 
+                          var str2="";
+                     function validatSkills(){
+                              str="";
+                              cnt=0;
+                      var arr = document.getElementsByName("Skill");
+                      for(var i = 0 ; i<arr.length;i++){
+
+                              if(arr[i].checked){
+                                   str+=arr[i].value+","
+                                   cnt++;
+                              }
+
+
+                      }
+                      if(cnt>=2){
+
+                        document.getElementById("errSkill").innerHTML=""
+                        str2=str.slice(0,str.length-1);
+                        return true;
+
+                     }else{
+                              document.getElementById("errSkill").innerHTML="Please select atleast 2 skills"
+                              return false;
+                     }
+                    }
+                     function validateName(){
+                      name=document.getElementById("name").value;
+                     if((name==="") || (name.trim().length===0)){ 
+
+                              document.getElementById("errName").innerHTML="Name can not be space and blank"
+                              return false;
+                     }else{
+
+                              dodocument.getElementById("errName").innerHTML=""
+                              return true;
+                     }
+
+                    }
+
+
+
+
+                    function validateData(){
+                     var flag = validateName();
+                     var flag1 = validatSkills();
+                      if(flag && flag1){
+                              var str1="Name: "+name+"<br>"+"Skills: "+str2;
+                              document.getElementById("mydiv").innerHTML=str1;
+                      }
+
+                    }
+          </script>
+</head>
+<body>
+          <form >
+                    <form name="frm"> 
+                              Enter name : <input type="text" name="name" id="name"><span style="color: red;">*</span>&nbsp;<span id="errName" style="color: red;"></span><br><br>
+                              Skill : <input type="checkbox" name="Skill" id="s1" value="JAVA" ><label for="s1">JAVA</label>
+                                      <input type="checkbox" name="Skill" id="s2" value="PYTHON"><label for="s2">PYTHON</label>
+                                      <input type="checkbox" name="Skill" id="s3" value="DBMS"><label for="s3">DBMS</label>
+                                      <input type="checkbox" name="Skill" id="s4" value="JAVASCRIPT"><label for="s4">JAVASCRIPT</label>&nbsp;&nbsp;&nbsp;<span style="color: red;" id="errSkill"></span><br><br>
+                     
+                                      <button style="background-color: chartreuse; position:relative; left: 120px;" type="button" name="btn" id="btn" onclick="validateData()">SHOW DATA</button>
+                               </form>
+                               <div id="mydiv">
+                     
+                               </div>
+          </form>
+</body>
+</html>

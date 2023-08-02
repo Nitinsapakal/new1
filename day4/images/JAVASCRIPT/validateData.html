@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <style>
+                    .mm{
+                              color: red;
+                    }
+                    hr{
+                              position: relative;
+                              left: 25px;
+                              background-color:darkturquoise;
+                              width: 250px;
+                              height: 2px;
+                    }
+          </style>
+          <script>
+                    function validateUser( id1,err){
+                    var n1 = document.getElementById(id1).value;
+                    if(n1==="" || isNaN(n1)){
+                    document.getElementById(err).innerHTML="Please Enter Numeric Value";
+                    return false;
+                    }
+                    else{
+                    document.getElementById(err).innerHTML="";
+                    return true;
+                    }
+
+          }
+
+
+             function validatenumbers(){
+
+                    var flag=validateUser("nm1","err1");
+                    var flag1=validateUser("nm2","err2");
+
+                    if(flag && flag1){
+
+                              add();    
+
+                    }
+
+
+             }
+
+
+           function add(){
+          var xx=parseInt(document.getElementById("nm1").value);
+          var yy=parseInt(document.getElementById("nm2").value);
+          var sum=xx+yy;
+
+          document.getElementById("rr1").value=sum;
+          document.getElementById("my5").innerHTML="Addition :"+sum
+
+           }
+
+          </script>
+</head>
+<body style="position: absolute; left: 700px;">
+            <h4 style="position: relative; left: 125px;">Addition</h4>
+
+       <form name="frm">
+          Number 1: <input type="text" name="nm1" id="nm1"><span class="mm">*</span><span class="mm" id="err1"></span><br><br>
+          Number 2: <input type="text" name="nm2" id="nm2"><span class="mm">*</span><span class="mm" id="err2"></span><br><br>
+          Resualt : <input style="position: relative; left: 11px;" type="text" name="rr1" id="rr1" disabled><br><br>
+          <button  style="background-color: greenyellow; position: relative; left: 110px;" type="button" name="btn" id="btn" onclick="validatenumber()" >Add Numbers</button>
+
+       </form>
+       <br><br>
+       <form id="my5">
+
+
+       </form>
+       <hr><hr>
+          
+</body>
+</html>

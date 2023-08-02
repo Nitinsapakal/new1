@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <script>
+                    function changeString(){
+
+                        var se= document.getElementById("o1");  
+                        var pos=se.selectedIndex
+                        alert(se.selectedIndex);
+                       var bb = alert(se.options[pos].value);
+                       var t=parseInt(bb);
+                        document.getElementById("iid").value= t;   
+
+                    }
+          </script>
+</head>
+<body>
+          <form name="frm">
+       Enter String: <input  type="text" name="sname" id="iid" disabled><br><br>
+       Operation : <select style="background-color: darkturquoise;" name="opration" id="o1" >
+          <option value="upper">Upper Case</option>
+          <option value="lower">Lower Case</option>
+          <option value="reverse">Reverse</option>
+          <option value="length">Length</option>
+          <option value="trim">Trim</option>
+          <option value="CharAt">CharAt</option>
+          <option value="replace">Replace</option>
+          <option value="search">Search</option>
+          <option value="split">Split</option>
+          <option value="substring">Substring</option>
+          <option value="concat">Concat</option>
+          <option value="indexOf">IndexOf</option>
+          <option value="lastIndexOf">LastIndexOf</option>
+          <option value="slice">Slice</option>
+          <option value="match">Match</option>
+
+        
+       </select><br><br>
+       <button style="background-color: greenyellow" type="button" name="btn5" id="btn5" onclick="changeString()">
+          Display Reasult
+</button>
+
+
+          </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <script>
+
+                    function validat(){
+                    
+                              var sel = document.getElementById("opp");
+                              var pos=sel.selectedIndex;
+                              var calc=sel.options[pos].value;
+                            
+                              var str = document.getElementById("id1").value;
+
+                              switch(calc){
+
+                               case "upper": 
+                               result = "Upper Case "+str.toUpperCase();
+                                        break;
+
+
+
+                              }
+
+                              document.getElementById("i").innerHTML=result;
+
+                    }
+
+          </script>
+</head>
+<body>
+      
+          
+          <form name="frm">
+            
+                    Enter String: <input type="text" name="in" id="id1"><br>
+                    oprations : <select name="id" id="opp">
+                       <option value="upper">Upper</option>
+                       <option value="lower">Lower</option>
+                       
+                    </select>
+                    <button type="button" name="btn" id="btn" onclick="validat()">display result</button>
+                    
+          </form>
+          <div id="i"> 
+
+          </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <script>
+          function addition(){
+             var a=parseInt(document.getElementById("num1").value);
+             var b=parseInt(document.getElementById("num2").value);
+             var add=a+b;
+
+             document.getElementById("mydiv").innerHTML="Addition :"+add;
+             document.getElementById("r1").value=add;
+
+
+          }
+          
+
+
+
+
+          </script>
+          <style>
+                    button{
+                              background-color:greenyellow;
+                              border: 2px solid red;
+                    }
+                    #r1{
+
+                              position: relative;
+                              left: 24px;
+                    }
+                    h4{
+                              position: relative;
+                              left: 125px;
+                    }
+                    #mydiv{
+                              background-color: aliceblue;
+                              width: 200px;
+                              height: 100px;
+                              border: 3px solid red;
+                              position: relative;
+                              left: 60px;
+                              
+                              
+                    }
+          </style>
+</head>
+<body>
+
+        <h4>Addition</h4>
+
+       <form name="frm">
+      Number 1: <input type="text" name="num1" id="num1"><br><br>
+      Number 2: <input type="text" name="num2" id="num2"><br><br>
+      result : <input type="text" name="r1" id="r1" disabled><br><br>
+
+      <button  type="button"  name="add" id="add" value="add" onclick="addition()">Add numbers</button>
+
+
+       </form>  
+       <br>
+       <div id="mydiv">
+
+
+       </div> 
+</body>
+</html>
