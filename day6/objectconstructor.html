@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+<body>
+          <script>
+
+          class Person{
+            constructor(id,nm,mob){
+                    this.id = id;
+                    this.nm = nm;
+                    this.mob=mob;          
+            }
+
+          }
+        var p1 = new Person(1,"rahul",7522);
+        for(var property in p1){
+             console.log(p1[property]);
+        }
+        p1.location="mumbai";
+
+        for(var property in p1){
+          console.log(property+" "+p1[property]);
+        }
+
+        class human extends Person{
+          constructor(id,nm,mob,age,sal,dept){ 
+                   super(id,nm,mob);
+                    this.age=age;
+                    this.sal=sal;
+                    this.dept=dept;
+        }
+}
+         h = new human(50,"human1",7522,25,5000,"HR");
+            
+        for(var property in h){
+          document.write(property+" "+h[property]);
+          document.write("<br>");
+          console.log(property+" "+h[property])
+        }
+        
+</script>
+</body>
+</html>

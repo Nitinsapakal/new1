@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+<body>
+          <script>
+         var ob={
+          empid:1,
+          ename:"kishor",
+          dept:{deptno:1,dname:"Admin",salary:50000},
+          hobbies:["reading","biking","trekking"],
+          experience:[{name:"igate",years:5},
+                      {name:"techM",years:4}],
+          desg:"Manager"              
+         }
+
+         console.log(ob["empid"]);// 1
+         console.log(ob.ename)//1
+         console.log(ob.dept.dname)//admin
+         console.log(ob["experience"][1]["name"]);//techM
+         console.log(ob["hobbies"][1]);//biking
+         document.write(ob["hobbies"]);
+
+
+
+        var obj={
+         
+          empid1:5001,
+          name:"kishor",
+          Age :25,
+          deptt:{ddeptno : 55,ddname:"HR",ddloc:"mumbai"},
+          eexperience:[{name:"gitesh",dddname:"sales"},{name:"Pritesh",dname:"purchase"}],
+          hobbies:["reading","biking","trekking"],
+          desg:"MD"
+        }
+        document.write(obj["empid1"]);                      // 5001       
+        document.write(obj["name"]);                        //kishor
+        document.write(obj["Age"]);                         // 25
+        document.write(obj["deptt"]["ddname"]);             //HR
+        document.write(obj["eexperience"][0]["dddname"]);   //sales
+        document.write(obj["eexperience"][1]["dname"]);     //purchase
+        document.write(obj["hobbies"][1])                   //biking
+</script>
+</body>
+</html>

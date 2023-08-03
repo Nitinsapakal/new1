@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <script src="./jquery.js"></script>
+          <script src="./boostrapDemo/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
+          <link rel="stylesheet" href="./boostrapDemo/bootstrap-4.6.2-dist/css/bootstrap.css" />
+
+
+          <script>
+
+                    arr = [{ pid: 1, pname: "chair", qty: 34, price: 500 },
+                    { pid: 2, pname: "table", qty: 20, price: 100 },
+                    { pid: 3, pname: "shelf", qty: 50, price: 5500 },
+                    { pid: 4, pname: "stool", qty: 55, price: 5100 }]
+
+                   var showProductDetails=()=>{
+
+                    str="<table border='2'><tr><th>Product id</th><th>Product name</th><th>Product quntity</th><th>Product price</th></tr>";
+                       for(var ob of arr){
+                         str+=`<tr><td>${ob.pid}</td><td>${ob.pname}</td><td>${ob.qty}</td><td>${ob.price}</td></tr>`;
+                       }
+                    str+="</table>"
+                    document.getElementById("mydiv").innerHTML=str;
+                    document.getElementById("pid").focus();
+                   }
+                   var clearForm=()=>{
+                    document.getElementById("pid").value=''
+                    document.getElementById("pname").value=''
+                    document.getElementById("pqty").value=''
+                    document.getElementById("pprice").value=''
+                    document.getElementById("pid").focus();
+
+                   }
+                   
+                   var addnewproduct=()=>{
+                    
+                    var pid   = parseInt(document.getElementById("pid").value);
+                    var pname = document.getElementById("pname").value;
+                    var qty   = parseInt(document.getElementById("pqty").value);
+                    var price = parseFloat(document.getElementById("pprice").value);
+                    var obj = {pid:pid,pname:pname,qty:qty,price:price}
+                    arr.push(obj);
+                    showProductDetails();
+                    clearForm();
+                   }
+
+
+                   var deleteproduct=()=>{
+                    var pid = parseInt(document.getElementById("pid").value);
+                    var pos = arr.findIndex(a=>a.pid===pid);
+                    if(pos !== -1){
+                       var ans = confirm(`${pid} Do You Really Want to Delete this Product (Y/N)`);
+                       if(ans){
+                         arr.splice(pos,1);
+                         
+                       }
+                      showProductDetails();
+                      clearForm();
+                       
+                    }else{
+                              alert("Product Not Found");
+                       }
+                   }
+
+                  var updateproduct=()=>{
+                     
+                    var pid = parseInt(document.getElementById("pid").value);
+                    var pos = arr.findIndex(a=>a.pid===pid);
+                    if(pos !== -1){
+                        var nqty = parseInt(prompt("Enter Product Quntity"));
+                        var nprice=parseFloat(prompt("Enter Price"));
+
+                        arr[pos].qty=nqty;
+                        arr[pos].price=nprice
+                        showProductDetails();
+                        clearForm();
+
+                    }else{
+                         alert("Product Not Found");     
+                    }
+                   }
+
+
+                   
+
+
+          </script>
+
+
+</head>
+
+<body style="position: relative; left: 600px;" onload="showProductDetails()">
+          <form>
+                    <table>
+                              <tr>
+                                        <th> Product id:</th>
+                                        <td> <input type="text" name="pid" id="pid"></td>
+                              </tr>
+                              <tr>
+                                        <th> Product name:</th>
+                                        <td> <input type="text" name="pname" id="pname"></td>
+                              </tr>
+                              <tr>
+                                        <th> Product quntity:</th>
+                                        <td> <input type="text" name="pqty" id="pqty"></td>
+                              </tr>
+                              <tr>
+                                        <th> Product price:</th>
+                                        <td> <input type="text" name="pprice" id="pprice"></td>
+                              </tr>
+
+                    </table><br>
+                    <button type="button" class="btn btn-primary" name="btn1" id="btn1" value="btn1" onclick="addnewproduct()">Add new
+                              Product</button>
+                    <button type="button" class="btn btn-primary" name="btn2" id="btn2" value="btn2" onclick="deleteproduct()">Delete
+                              Product</button>
+                    <button type="button" class="btn btn-primary" name="btn3" id="btn3" value="btn3" onclick="updateproduct()">Update
+                              Product</button>
+
+          </form><br>
+          <div  id="mydiv">
+
+
+          </div>
+</body>
+
+</html>

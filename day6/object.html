@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+<body>
+          <script>
+                    class Person{
+                 constructor(pid,name,age,loc,mob){
+                    this.pid=pid;
+                    this.name=name;
+                    this.age=age;
+                    this.loc=loc;
+                    this.mob=mob;
+
+                 }
+                 display(){
+                    document.write(" pid: "+this.pid+"<br>"+" name: "+ this.name+"<br>"+" age "+this.age+"<br>"+" loc "+this.loc+"<br>"+" mob "+this.mob)
+                 }
+
+                    }
+
+                    class Employee extends Person{
+                          constructor(pid,name,age,loc,mob,salary,dept,desg){
+                              super(pid,name,age,loc,mob);
+                              this.salary=salary;
+                              this.dept=dept;
+                              this.desg=desg;
+                    }
+                    display(){
+                              super.display()
+                              document.write("<br>"+" salary "+this.salary+"<br>"+" dept "+this.dept+"<br>"+" desg "+this.desg)
+                    }
+
+                    
+          }
+
+                    p1 =new Person(1,"shital",22,"pune",987897);
+                    Emp1 = new Employee(1,"shital",22,"pune",987897,5000,"HR","sr Hrmgr");
+                    Emp1.display();
+          </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+          <script>
+                    class Person {
+                              constructor(name) {
+                                        this.name = name;
+                              }
+                    }
+                    class Emp extends Person {
+                              constructor(name, salary) {
+
+                                        super(name)
+                                        this.salary = salary;
+
+                              }
+                    }
+                    p1 = new Person("Amol");
+                    e1 = new Emp("Amol",50000);
+                    p1.mobile=879878;
+                    e1.dept="sales";
+
+                    // for(var property in p1){
+                    // document.write(property+" "+p1[property]);
+                    // }
+
+                    e1.__proto__=p1;
+                    for(var property in e1){
+                         
+                      if(e1.hasOwnProperty(property)){
+                              document.write(property+" "+e1[property]);
+                    }else{
+                              document.write(property+" "+p1[property]);
+                    }
+          }
+</script>
+</body>
+
+</html>

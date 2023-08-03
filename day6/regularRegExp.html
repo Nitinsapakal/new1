@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+                var data;
+                var validateData = function () {
+                        var arr = document.getElementsByName("opration");
+                        for (var i = 0; i < arr.length; i++) {
+
+                                if (arr[i].checked) {
+                                        data = arr[i].value;
+                                }
+                        }
+
+                        var str = document.getElementById("str1").value;
+                        var p = document.getElementById("p1").value;
+                        var pattern = RegExp(p, "gi");
+
+                        switch (data) {
+
+                                case "search":
+                                        result = "Search String :" + str.search(pattern);
+                                        break;
+
+                                case "replace":
+                                        let pt = prompt("Enter String to replace");
+                                        result = "Replace String: " + str.replace(pattern, pt);
+                                        break;
+
+                                case "match":
+                                        result = "MatchString: " + str.match(pattern);
+                                        break;
+
+                                case "split":
+                                        result = "Split String: " + str.split(pattern);
+                                        break;
+
+                                case "slice":
+                                        arr = p.split(",");
+                                        result = "Slice String: " + str.slice(arr[0], arr[1]);
+                                        break;
+
+                                case "test":
+                                        result = "Test String: " + pattern.test(str);
+                                        break;
+
+                        }
+
+                        document.getElementById("mydiv").innerHTML = result;
+                }
+
+        </script>
+</head>
+
+<body>
+        <form>
+
+                String: <input type="text" name="inString" id="str1"><br><br>
+                Pattern : <input type="text" name="pString" id="p1"><br><br>
+                OPRATION: <input type="radio" name="opration" id="r1" value="search"><label for="r1">search</label>
+                <input type="radio" name="opration" id="r2" value="replace"><label for="r2">replace</label>
+                <input type="radio" name="opration" id="r3" value="match"><label for="r3">match</label>
+                <input type="radio" name="opration" id="r4" value="split"><label for="r4">split</label>
+                <input type="radio" name="opration" id="r6" value="slice"><label for="r6">slice</label>
+                <input type="radio" name="opration" id="r5" value="test"><label for="r5">test</label><br><br>
+
+                <button type="button" name="btn" id="btn" onclick="validateData()">Search Pattern</button>
+
+        </form>
+        <div id="mydiv">
+
+        </div>
+</body>
+
+</html>

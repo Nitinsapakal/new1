@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script>
+                    arr = [];
+                     var validateSeat=()=>{
+                      document.getElementById("mydiv").innerHTML=arr;
+
+                     }
+
+                    var getSeatNumber = (event) => {
+
+                              if (event.target.checked) {
+                                        arr.push(event.target.value);
+                              }
+                    }
+
+          </script>
+</head>
+
+<body>
+          <form action="validateUser" name="frm">
+                    <p>SelectSeat</p>
+                    <input type="checkbox" name="seat 1" id="1" value="1" onchange="getSeatNumber(event)">
+                    <label for="1">1</label>
+                    <input type="checkbox" name="seat 2" id="2" value="2" onchange="getSeatNumber(event)">
+                    <label for="2">2</label>
+                    <input type="checkbox" name="seat 3" id="3" value="3" onchange="getSeatNumber(event)">
+                    <label for="3">3</label>
+                    <input type="checkbox" name="seat 4" id="4" value="5" onchange="getSeatNumber(event)">
+                    <label for="4">4</label><br>
+
+
+                    <input type="checkbox" name="seat 5" id="5" value="5" onchange="getSeatNumber(event)">
+                    <label for="5">5</label>
+                    <input type="checkbox" name="seat 6" id="6" value="6" onchange="getSeatNumber(event)">
+                    <label for="6">6</label>
+                    <input type="checkbox" name="seat 7" id="7" value="7" onchange="getSeatNumber(event)">
+                    <label for="7">7</label>
+                    <input type="checkbox" name="seat 8" id="8" value="8" onchange="getSeatNumber(event)">
+                    <label for="8">8</label><br><br>
+
+                    <button type="button" name="btn" id="btn" value="btn" onclick="validateSeat()">Show seats</button>
+
+          </form>
+          <div id="mydiv">
+
+          </div>
+</body>
+
+</html>

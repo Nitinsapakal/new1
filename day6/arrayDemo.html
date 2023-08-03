@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script>
+
+                    arr = ["nitin", "kishori", "ganesh"];
+                    var displayList = () => {
+                              str = "<ul>"
+                              for (var i = 0; i < arr.length; i++) {
+                                        str += "<li>" + arr[i] + "</li>"
+
+                              }
+                              str += "</ul>"
+                              console.log(str);
+                              document.getElementById("mydiv").innerHTML = str;
+                    }
+
+                    var displayDetails = () => {
+
+                              displayList();
+
+                    }
+
+                    var addName = () => {
+                              var name = document.getElementById("name").value;
+                              arr.push(name);
+                              displayList();
+                              document.getElementById("name").value = "";
+                              document.getElementById("name").focus();
+                    }
+
+                    var deleteName = () => {
+                              var dname = document.getElementById("name").value;
+                              pos = arr.findIndex(name => name === dname);
+                              if (pos !== -1) {
+                                        arr.splice(pos, 1);
+                              }
+                              displayList();
+                              document.getElementById("name").value = "";
+                              document.getElementById("name").focus();
+                    }
+                    var updateName=()=>{
+                       var name1 = document.getElementById("name").value;
+                       pos = arr.findIndex(name=>name===name1);
+                        if(pos!==-1){
+                              arr[pos]=name1;
+                              p=prompt("Enter name to change");
+                              arr.splice(pos,1,p);
+                              displayList();
+                              document.getElementById("name").value = "";
+                              document.getElementById("name").focus();
+                        }
+                    }
+          </script>
+</head>
+
+<body onload="displayDetails()">
+          Name : <input type="text" name="name" id="name">
+          <button type="button" name="btn" id="add" value="add" onclick="addName()">Add Name</button>
+          <button type="button" name="btn" id="delete" value="delete name" onclick="deleteName()">delete Name</button>
+          <button type="button" name="btn" id="update" value="update name" onclick="updateName()">update Name</button>
+
+          <div id="mydiv">
+
+          </div>
+</body>
+
+</html>
