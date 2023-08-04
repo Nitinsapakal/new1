@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="../jequry.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          
+          <script>
+           $(document).ready(function(){
+              
+                    $("#btn").click(function(){
+                    
+                              var n1=parseInt($("#num1").val());
+                              var n2 = parseInt($("#num2").val());
+                              var res = n1+n2;
+
+
+                              $("#mydiv").html(res);
+                               $("#res").val(res);
+
+                    })
+              
+                  
+           });
+ 
+
+          </script>
+</head>
+<body>
+          <form >
+
+                 Num 1: <input type="text" name="num1" id="num1"><br><br>
+                 Num 2: <input type="text" name="num2" id="num2"><br><br>
+
+                 Result : <input type="text" name="res" id="res" disabled><br><br>
+
+                 <button type="button" id="btn" class="btn btn-primary">
+                    
+                    AddNumbers</button>
+
+          </form><br>
+          <div id="mydiv">
+
+          </div>
+</body>
+</html>

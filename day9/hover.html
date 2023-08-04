@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jquery.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"
+                    integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+                    integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <style>
+                    div {
+                              background-color: orange;
+                              border: 2px solid red;
+                              border-radius: 100px;
+                              width: 100px;
+                              height: 100px;
+                              position: relative;
+                              left: 10px;
+                              margin: 20px;
+
+                    }
+                    .myclass{
+                              background-color: cyan;
+                    }
+                    .myc{
+                              background-color: red;
+                    }
+          </style>
+          <script>
+                    $(document).ready(function () {
+
+                              $("#div1").hover(function () {
+
+                                        $(this).toggleClass("myc").toggleClass("myclass");
+
+                                      
+
+                                     
+
+
+
+                              })
+                              
+
+
+                           
+
+
+
+
+
+
+                    })
+          </script>
+
+</head>
+
+<body>
+
+         
+          <br><br><br>
+          <div id="div1" class="myclass">
+                    div1
+          </div>
+          <div id="div2">
+                    div2
+          </div>
+          <div id="div3">
+                    div3
+          </div>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jquery.js"></script>
+
+          <style>
+                    div{
+                              background-color: aqua;
+                              border: 3px solid red;
+                              border-radius:10px;
+                              width: 200px;
+                              height: 200px;
+                              margin: 50px;
+                    }
+              #div1{
+                    background-color: deeppink;
+              }
+              #div2{
+                        background-color: darkcyan;
+              }
+          </style>
+          <script>
+           $(document).ready(function(){
+               
+                    $('#btn').click(function(){
+ 
+                              $('#div1').animate({"margin-left":"200px","background-color":"pink"},1000)
+                              .animate({"margin-left":"0px","background-color":"pink"},1000)
+                    })
+             
+           })
+
+          </script>
+</head>
+<body> 
+        <button type="button" id="btn" name="btn">Animation</button>
+
+        <div id="div1" class="mydiv">
+              this is div one 
+        </div>  
+        <div id="div2">
+                this is div two 
+        </div>
+
+</body>
+</html>

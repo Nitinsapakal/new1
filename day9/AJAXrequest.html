@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jquery.js"></script>
+          <script>
+                    $(document).ready(function () {
+
+                              var displayDetials = (result) => {
+                                        str = "<table border='2'><tr><th>userId</th><th>id</th><th>title</th><th>body</th></tr>";
+                                        for (var ob of result) {
+
+                                                  str += `<tr><td>${ob.userId}</td><td>${ob.id}</td><td>${ob.title}</td><td>${ob.body}</td></tr>`;
+                                        }
+
+                                        str += "</table>";
+
+                                        $('#mydiv3').html(str);
+                              }
+
+                              var displayDropDown = (result) => {
+                                        str = "<select id='sid' name='sid'>";
+                                        for (var ob of result) {
+                                                  str += `<option value='${ob.id}'>${ob.id}</option>`;
+                                        }
+
+                                        str += "</select>"
+                                        $('#mydiv1').html(str);
+                              }
+
+                              function displayDropDow(resul) {
+
+
+                                        str = "Id : " + result.id + "<br>";
+                                        str += "user id :" + result.userId + "<br>"
+                                        str += "title:" + result.title + "<br>"
+                                        str += "body :" + result.body + "<br>"
+                                        $('#mydiv2').html(str);
+
+                              }
+
+                              $("btn1").click(function () {
+                                        var v = $('#sid option:selected').val();
+                                        $.ajax({
+
+                                                  async: true,
+                                                  url: "https://jsonplaceholder.typicode.com/posts/" + v,
+                                                  type: "GET",
+                                                  success: function (resul) {
+                                                            displayDropDow(resul);
+                                                  },
+                                                  error: function (err) {
+
+                                                  }
+
+
+
+                                        })
+
+
+                              })
+
+                              $('#btn2').click(function () {
+
+                                        $.ajax({
+                                                  async: true,
+                                                  url: "https://jsonplaceholder.typicode.com/posts/",
+                                                  type: "GET",
+                                                  success: function (result) {
+
+                                                            displayDetials(result)
+                                                            displayDropDown(result);
+
+
+                                                  },
+                                                  error: function (err) {
+
+                                                  }
+
+                                        })
+
+                              })
+
+
+                    })
+
+          </script>
+</head>
+
+<body>
+          <pre>
+                    This is http request will directly go to server
+
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    At deleniti neque architecto! Rerum ut facilis magni. 
+                    Amet, fugit, praesentium ipsum qui consequatur, 
+                    
+                    
+                    suscipit porro nulla dolore voluptas commodi eveniet dolorem.
+          </pre>
+          <div id="mydiv1">
+
+          </div>
+          <button type="button" name="btn1" id="btn1">Get data by id </button>
+          <button type="button" name="btn2" id="btn2">get data</button>
+
+          <div id="mydiv2">
+
+          </div>
+          <div id="mydiv3">
+
+          </div>
+
+</body>
+
+</html>

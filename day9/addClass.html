@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jquery.js"></script>
+
+          <style>
+
+          div{
+
+                border:2px solid red;
+                background-color: aqua;
+                color:red;
+                border-radius:10px;
+                width:500px;
+                height: 150px;
+                margin-left:100px;
+                margin-top: 10px
+
+
+                    }
+
+                    .myd1{
+                              display: block;
+                    }
+                    .myd2{
+                              display: none;
+                    }
+          </style>
+
+          <script>
+             $(document).ready(function(){
+
+                     
+                    $('#btn').click(function(){
+                    var v = $('input[name=Course]:checked').val();
+                         alert(v);
+                    })
+
+                 var NameAddrvalidation=(nm,err)=>{
+                        var name = $('#'+nm).val();
+                        if(name==="" || name.trim().length===0){
+                               $('#'+err).html("text box can not be empty");
+                              return false;
+                        }else{
+                              $('#'+err).html("");
+                              return true;
+                        }
+
+                 }
+
+                 $('#chek1').change(function(){
+                     var flage = NameAddrvalidation('name','errName');
+                     var flage1 = NameAddrvalidation('addr','errAddr')
+                     if(flage && flage1){
+                            
+                       if($('#chek1').is(":checked")){
+ 
+                              $('#mydiv2').addClass('myd1').removeClass('myd2')
+
+                       }else{
+                              $('#mydiv2').addClass('myd2').removeClass('myd1')
+                       }       
+
+                     }
+
+                 })
+
+
+             })
+             
+                
+
+          </script>
+</head>
+<body>
+          <div id="mydiv1" class="myd1">
+
+                    <form style="position: relative;left: 10px;"> <br>
+                              Name: <input type="text" name="name" id="name" ><span>*</span><span id="errName"></span> <br><br>
+                              Addr: <input type="text" name="addr" id="addr" ><span>*</span><span id="errAddr"></span><br><br>
+                              <input type="checkbox" name="course" id="chek1"><label for="chek1">Show Courses</label> 
+                    </form>
+
+          </div>
+          <br><br>
+          <div id="mydiv2" class="myd2">
+
+                    <form style="position: relative;left: 10px;">
+                             <input type="radio" name="Course" id="c1" value="JAVA"><label for="c1">JAVA</label><br><br>
+                             <input type="radio" name="Course" id="c2" value="DBMS"><label for="c2">DBMS</label><br><br>
+                             <input type="radio" name="Course" id="c3" value="C++"><label for="c3">C++</label><br><br>
+
+                               <button type="button" name="btn" id="btn">Select Course</button>
+
+                    </form>
+          </div>
+</body>
+</html>

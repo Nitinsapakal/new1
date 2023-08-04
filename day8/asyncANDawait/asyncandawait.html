@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+          <script>
+                    
+                    var showdata=(arr)=>{
+              str="<table border='2' ><tr><th >userId</th><th>Id</th><th>Title</th><th>Body</th></tr>";
+                  for( var ob of arr){
+
+                   str+=`<tr><td scope="col">${ob.userId}</td><td scope="col">${ob.id}</td><td scope="col">${ob.title}</td><td scope="col">${ob.body}</td></tr>`
+
+                  }
+                  str+="</table>";
+                  document.getElementById("mydiv").innerHTML=str;
+          }
+
+       async function Ajaxrequest(){
+         var  result = await fetch("https://jsonplaceholder.typicode.com/posts/");
+               if(result.status==200 && result.ok){
+                  
+                    var json = await result.json();
+                    showdata(json);
+
+               }else{
+
+               }
+
+          }
+          </script>
+</head>
+<body>
+      
+          <form action="validateUser" >
+
+          <button type="button" class="btn btn-primary" onclick="Ajaxrequest()">Send Ajax Request</button>
+
+          </form>
+<br><br>
+          <div id="mydiv">
+
+          </div>
+
+       
+          
+</body>
+</html>

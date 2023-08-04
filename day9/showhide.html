@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jquery.js"></script>
+
+          <style>
+                    div {
+
+                              background-color: aqua;
+                              border-radius: 4px;
+                              border: 2px solid rgb(222, 81, 42);
+                              width: 100px;
+                              height: 100px;
+                              margin: 20px;
+                    }
+          </style>
+          <script>
+                    $(document).ready(function () {
+                              $("#show").click(function () {
+
+                                        $("#div1").show(800,function(){
+
+                                        })
+                                        $("#div2").hide(800,function(){
+
+                                        }) 
+                                        
+                                          $("#div3").hide(800,function(){
+
+                                        })
+                                        
+                              })
+                              
+
+
+
+                              $("#hide").click(function () {
+
+                                        $("#div1").hide(800,function(){
+
+                                        })
+
+                                        $("#div2").show(800,function(){
+
+                                          })
+                                          $("#div3").show(800,function(){
+
+                                          })
+                              })
+
+
+
+
+                              $("#toggle").click(function () {
+
+                                        $("#div3").toggle(800,function(){
+
+                                        })
+                                        $("#div1").toggle(800,function(){
+                                                  
+                                        })
+                              })
+
+                    })
+                   
+
+          </script>
+</head>
+
+<body>    <button type="button" name="show" id="show" class="btn btn-primary" btn-lg btn-block">show</button>
+          <button type="button" name="hide" id="hide" class="btn btn-primary" btn-lg btn-block">hide</button>
+          <button type="button" name="toggle" id="toggle" class="btn btn-primary" btn-lg btn-block">toggle</button>
+          <br><br><br>
+          <div id="div1">
+                 div1
+          </div>
+          <div id="div2">
+               div2
+          </div>
+          <div id="div3">
+                div3
+          </div>
+      
+</body>
+
+</html>
