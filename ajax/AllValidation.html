@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jequry.js"></script>
+
+          <style>
+                    div {
+
+                              background-color: cyan;
+                              border: 4px solid red;
+                    }
+
+                    div:hover {
+
+                              color: red;
+
+                    }
+          </style>
+          <script>
+                    $(document).ready(function () {
+
+                              $('#btn').click(function () {
+
+
+
+
+                                        // validation function
+                                        var validation = (ele, err) => {
+                                                  var rule = $(ele).val();
+
+                                                  if (rule === "test") {
+                                                            $(err).html("please select at list one field");
+                                                            return false;
+
+                                                  } else {
+                                                            $(err).html("");
+                                                            return true;
+                                                  }
+
+                                        }
+
+
+
+                                        var flag1 = validation('select option:selected', '#errdropdown');
+                                        var flag2 = validation('input[name=degree]:checked', '#errradio');
+                                        var flag3 = validation('input[name=skill]:checked', '#errcheckbox');
+
+                                        if (flag1 && flag2 && flag3) {
+                                                  // drop downBox 
+                                                  var city = $('select option:selected').val();
+
+
+
+
+                                                  // radio button 
+                                                  var degree = $('input[name=degree]:checked').val();
+
+
+
+                                                  // checkBox
+                                                  // first define one skills []
+                                                  skills = [];
+                                                  $('input[name=skill]:checked').each(function (index, elements) {
+
+                                                            skills.push($(elements).val())
+
+                                                  })
+
+
+
+                                                  $('#div1').html("City : " + city);
+                                                  $('#div2').html("Degree : " + degree);
+                                                  $('#div3').html("Skills : " + skills);
+
+                                        }
+                              })
+                    })         
+          </script>
+</head>
+
+<body> <label>Select City : </label>
+          <select name="cityName" id="city">
+                    <option value="test">--Choose City--</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Mumabi">Mumbai</option>
+                    <option value="sambhajiNagar">sambhajiNagar</option>
+          </select>
+
+          <span style="color: red;">*</span>
+          <span style="color: red;" id="errdropdown"></span>
+
+          <br><br>
+
+          <label>Degree : </label>
+          <input type="radio" name="degree" id="BE" value="BE" checked />
+          <label for="BE">BE</label>
+          <input type="radio" name="degree" id="B-TECH" value="B-TECH" />
+          <label for="B-TECH">B-TECH</label>
+          <input type="radio" name="degree" id="MBA" value="MBA" />
+          <label for="MBA">MBA</label>
+          <input type="radio" name="degree" id="MCA" value="MCA" />
+          <label for="MCA">MCA</label>
+
+          <span style="color: red;">*</span>
+          <span style="color: red;" id="errradio"></span>
+
+          <br><br>
+
+
+          <label>Skills : </label>
+
+          <input type="checkbox" name="skill" id="JAVA" value="JAVA" checked />
+          <label for="JAVA">JAVA</label>
+          <input type="checkbox" name="skill" id="PYTHON" value="PYTHON" />
+          <label for="PYTHON">PYTHON</label>
+          <input type="checkbox" name="skill" id="C++" value="C++" />
+          <label for="C++">C++</label>
+          <input type="checkbox" name="skill" id="C#" value="C#" />
+          <label for="C#">C#</label>
+          <span style="color: red;">*</span>
+          <span style="color: red;" id="errcheckbox"></span>
+
+          <br><br>
+
+
+          <button type="button" id="btn" name="btn" value="btn">Show</button>
+          <br><br>
+
+          <div id="div1">
+
+
+          </div>
+          <div id="div2">
+
+
+          </div>
+          <div id="div3">
+
+
+          </div>
+</body>
+
+</html>

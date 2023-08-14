@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    div {
+          background-color: yellow;
+                border:2px solid red;
+                border-radius:10px;
+                 width:400px;
+                 height: 200px;
+
+          
+    }
+     
+
+    .d{
+          display: none;
+    }
+
+
+    div:hover {
+      color: red;
+    }
+  </style>
+  
+  <script>
+    $(document).ready(function() {
+      $('#btn').click(function() {
+        // Validation function
+
+          
+
+        var validation = function(ele, err) {
+          var rule = $(ele).val();
+          if (rule === "test") {
+            $(err).html("please select at least one field");
+            return false;
+          } else {
+            $(err).html("");
+            return true;
+          }
+        };
+
+        var flag1 = validation('select[name="cityName"] option:selected', '#errdropdown');
+        var flag2 = validation('input[name="degree"]:checked', '#errradio');
+        var flag3 = validation('input[name="skill"]:checked', '#errcheckbox');
+
+        if (flag1 && flag2 && flag3) {
+          // Dropdown
+          var city = $('select[name="cityName"] option:selected').val();
+
+          // Radio buttons
+          var degree = $('input[name="degree"]:checked').val();
+
+          // Checkboxes
+          var skills = [];
+          $('input[name="skill"]:checked').each(function(index, element) {
+            skills.push($(element).val());
+          });
+
+          $('#div1').html("City: " + city);
+          $('#div2').html("Degree: " + degree);
+          $('#div3').html("Skills: " + skills.join(', '));
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <label>Select City:</label>
+  <select name="cityName" id="city">
+    <option value="test">--Choose City--</option>
+    <option value="Pune">Pune</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="SambhajiNagar">SambhajiNagar</option>
+  </select>
+  <span style="color: red;">*</span>
+  <span style="color: red;" id="errdropdown"></span>
+  <br><br>
+  
+  <label>Degree:</label>
+  <input type="radio" name="degree" id="BE" value="BE" checked>
+  <label for="BE">BE</label>
+  <input type="radio" name="degree" id="B-TECH" value="B-TECH">
+  <label for="B-TECH">B-TECH</label>
+  <input type="radio" name="degree" id="MBA" value="MBA">
+  <label for="MBA">MBA</label>
+  <input type="radio" name="degree" id="MCA" value="MCA">
+  <label for="MCA">MCA</label>
+  <span style="color: red;">*</span>
+  <span style="color: red;" id="errradio"></span>
+  <br><br>
+
+  <label>Skills:</label>
+  <input type="checkbox" name="skill" id="JAVA" value="JAVA" checked>
+  <label for="JAVA">JAVA</label>
+  <input type="checkbox" name="skill" id="PYTHON" value="PYTHON">
+  <label for="PYTHON">PYTHON</label>
+  <input type="checkbox" name="skill" id="C++" value="C++">
+  <label for="C++">C++</label>
+  <input type="checkbox" name="skill" id="C#" value="C#">
+  <label for="C#">C#</label>
+  <span style="color: red;">*</span>
+  <span style="color: red;" id="errcheckbox"></span>
+  <br><br>
+
+  <button type="button" id="btn">Show</button>
+  <br><br>
+
+  <div class="d" id="div1"></div>
+  <div class="d" id="div2"></div>
+  <div class="d" id="div3"></div>
+</body>
+</html>

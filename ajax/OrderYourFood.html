@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jequry.js"></script>
+          <script>
+                    $(document).ready(() => {
+
+
+                              const validation = (da, err) => {
+                                        var valid = $(da).val();
+                                        var pat = /\d/
+                                        if (valid === "" || (valid.trim().length === 0) || pat.test(valid)) {
+
+                                                  $(err).html("please enter valid name");
+                                                  return false;
+
+                                        } else {
+                                                  $(err).html("");
+                                                  return true;
+                                        }
+
+
+                              }
+                              const validation1 = (da, err) => {
+                                        var valid = $(da).val();
+                                        var pat = /\d/
+                                        if (valid === "" || valid.trim().length === 0 || pat.test(valid)) {
+
+                                                  $(err).html("please enter valid address");
+                                                  return false;
+
+                                        }
+                                        else {
+                                                  $(err).html("");
+                                                  return true;
+                                        }
+
+
+                              }
+                              const validation2 = (da, err) => {
+                                        var valid = $(da).val();
+                                        if (valid === "" || isNaN(valid)) {
+
+                                                  $(err).html("please enter valid Number");
+                                                  return false;
+
+                                        } else {
+                                                  $(err).html("");
+                                                  return true;
+                                        }
+
+
+                              }
+
+
+
+
+                              $("#btn").click(() => {
+
+
+                                        var flag1 = validation("#name", "#errname");
+                                        var flag2 = validation1("#add", "#erradd");
+                                        var flag3 = validation2("#num", "#errnum");
+
+                                        if (flag1 && flag2 && flag3) {
+
+                                                  var name = $("#name").val();
+                                                  var add = $("#add").val();
+                                                  var num = $("#num").val();
+
+                                                  orders = [];
+                                                  $('input[name=order]:checked').each(function (index, elements) {
+
+                                                            orders.push($(elements).val())
+
+                                                  })
+
+
+                                                  $("#mydiv1").html("Order Placed Successfully !!!!!!!");
+                                                  $("#mydiv2").html("custome Name :" + name);
+                                                  $("#mydiv3").html("address      :" + add);
+                                                  $("#mydiv4").html("contact No   :" + num);
+                                                  $("#mydiv7").html("Orders       :" + orders);
+
+
+
+
+                                        }
+                              })
+                              $("#bt1").click(() => {
+
+                                        var name = $("#name").val();
+                                        var add = $("#add").val();
+                                        var num = $("#num").val();
+
+
+                              })
+                              $("#bt2").click(() => {
+
+                                        var name = $("#name").val();
+                                        var add = $("#add").val();
+                                        var num = $("#num").val();
+
+
+                              })
+                    })
+
+
+
+
+
+          </script>
+</head>
+
+<body style="position: relative; left: 200px;">
+          <form>
+                    <label style="position: relative; left:140px;"><Strong> Order Your Food</Strong></label>
+                    <table>
+                              <tr>
+                                        <td>
+                                                  <fieldset>
+                                                            <table>
+
+                                                                      <tr>
+                                                                                <th>Name : </th>
+                                                                                <td><input type="text" name="name"
+                                                                                                    id="name"><span
+                                                                                                    style="color: red;">*</span><span
+                                                                                                    style="color: red;"
+                                                                                                    id="errname"></span>
+                                                                                </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                                <th>Address : </th>
+                                                                                <td><input type="text" name="add"
+                                                                                                    id="add"><span
+                                                                                                    style="color: red;">*</span><span
+                                                                                                    style="color: red;"
+                                                                                                    id="erradd"></span>
+                                                                                </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                                <th>Contact No : </th>
+                                                                                <td><input type="text" name="num"
+                                                                                                    id="num"><span
+                                                                                                    style="color: red;">*</span><span
+                                                                                                    style="color: red;"
+                                                                                                    id="errnum"></span>
+                                                                                </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                                <td>
+
+                                                                                </td>
+                                                                      </tr>
+                                                            </table>
+
+                                                            <fieldset>
+                                                                      <table>
+                                                                                <tr>
+                                                                                          <th></th>
+                                                                                          </th>
+                                                                                          <td><input type="checkbox"
+                                                                                                              name="order"
+                                                                                                              id="pizza"><label
+                                                                                                              for="pizza">Pizza
+                                                                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                                                                    <input type="text"
+                                                                                                              id="pi" />
+                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100
+                                                                                                    Rs
+                                                                                          </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                          <th></th>
+                                                                                          </th>
+                                                                                          <td><input type="checkbox"
+                                                                                                              name="order"
+                                                                                                              id="Burger"><label
+                                                                                                              for="Burger">Burger
+                                                                                                              &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                                                                    <input type="text"
+                                                                                                              id="bu" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    80 Rs
+                                                                                          </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                          <th></th>
+                                                                                          </th>
+                                                                                          <td><input type="checkbox"
+                                                                                                              name="order"
+                                                                                                              id="Maggie"><label
+                                                                                                              for="Maggie">Maggie&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                                                                    <input type="text"
+                                                                                                              id="ma" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    50 Rs
+                                                                                          </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                          <th></th>
+                                                                                          </th>
+                                                                                          <td><input type="checkbox"
+                                                                                                              name="order"
+                                                                                                              id="Sandwitch"><label
+                                                                                                              for="Sandwitch">Sandwitch</label>
+                                                                                                    <input type="text"
+                                                                                                              id="sa" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    70 Rs
+                                                                                          </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                          <th></th>
+                                                                                          </th>
+                                                                                          <td><input type="checkbox"
+                                                                                                              name="order"
+                                                                                                              id="Momos"><label
+                                                                                                              for="Momos">Momos&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    </label> <input
+                                                                                                              type="text"
+                                                                                                              id="mo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    90 Rs</td>
+                                                                                </tr>
+
+                                                                      </table>
+                                                            </fieldset>
+                                                  </fieldset>
+                                        <td></td>
+                                        </td>
+                              </tr>
+
+                              </tr>
+                    </table>
+                    <table>
+                              <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"
+                                                            name="btn"
+                                                            id="btn">Order</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <td><button type="reset" name="bt1"
+                                                            id="bt1">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <td><button type="reset" name="bt2" id="bt2">cancel</button>
+                                        </td>
+                    </table>
+                    <div>
+                              <table>
+                                        <tr>
+                                                  <td>
+                                                            <fieldset>
+                                                                      <div id="mydiv1">
+
+                                                                      </div>
+                                                                      <div id="mydiv2">
+
+                                                                      </div>
+                                                                      <div id="mydiv3">
+
+                                                                      </div>
+                                                                      <div id="mydiv4">
+
+                                                                      </div>
+                                                                      <div id="mydiv5">
+
+                                                                      </div>
+                                                                      <div id="mydiv6">
+
+                                                                      </div>
+                                                                      <div id="mydiv7">
+
+                                                                      </div>
+
+
+                                                            </fieldset>
+                                                  </td>
+                                        </tr>
+                              </table>
+                    </div>
+          </form>
+</body>
+
+</html>

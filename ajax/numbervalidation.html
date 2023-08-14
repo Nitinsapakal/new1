@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+
+          <script>
+
+             var validateNum=()=>{
+             var a = parseInt(document.getElementById('num1').value)
+             var b = parseInt(document.getElementById('num2').value)
+              ans = a+b ;
+              document.getElementById('result').value=ans;
+               document.getElementById('mydiv').innerHTML="Addition : "+ans;
+              
+             }
+            
+             var validatedata=(num,err)=>{
+             var numm = document.getElementById(num).value;
+                     if(numm==="" || isNaN(numm)){
+                      
+                       document.getElementById(err).innerHTML="please enter valid number";
+                       return false;       
+                    
+                     }else
+                     { 
+                       document.getElementById(err).innerHTML="";       
+                       return true;       
+                     }
+             }
+
+
+             var validateNumber=()=>{
+                 
+                var flag = validatedata('num1','num1error');
+                var flag1 = validatedata('num2','num2error');    
+                   if(flag && flag1){
+                    validateNum();
+                   }
+                    
+             }
+
+          </script>
+
+
+
+</head>
+<body>
+          Number 1 : <input type="text" name="num1" id="num1"/>
+          <span style="color: red;">*</span>
+         <span style="color: red;" id="num1error"></span>
+<br/><br/>
+         Number 2 : <input type="text" name="num2" id="num2"/>
+          <span style="color: red;">*</span>
+         <span style="color: red;" id="num2error"></span>
+
+         <br/><br/>
+
+          Rusult : <input type="text" name="result" id="result" disabled/>
+
+         <br/><br/>
+<button type="button" id="btn" name="btn" onclick="validateNumber()" >Addition</button>
+<br/><br/>
+<div id="mydiv">
+
+
+</div>
+</body>
+</html>

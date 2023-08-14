@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jequry.js"> </script>
+          <script>
+             $(document).ready(function(){
+              
+
+                  var validate=(va,err)=>{
+                  var n = $(va).val();
+
+                  if(n==="" || isNaN(n)){
+                     
+                    $(err).html("Enter Numeric value");
+                    return false;
+ 
+                  }else{
+                    $(err).html("");
+                    return true;
+                  }
+
+                  }
+ 
+                    $('#btn').click(function() {
+                    
+                   var n1 = validate("#n1","#num1error");
+                   var n2 = validate('#n2',"#num2error");
+                    
+                   if(n1 && n2){
+
+                    var num1 = parseInt($('#n1').val());
+                    var num2 = parseInt($('#n2').val());
+                     
+                    var sum = num1 + num2;
+
+                    $('#mydiv').html("Addition is : "+sum);
+
+                    }else{
+                       console.log("error");       
+                    }
+                    })
+             })
+
+
+          </script>
+
+
+
+</head>
+<body>
+          Number 1 : <input type="text" name="n1" id="n1"/>
+          <span style="color: red;">*</span>
+          <span style="color: red;" id="num1error"></span>
+          <br><br>
+          Number 2 : <input type="text" name="n2" id="n2"/>
+          <span style="color: red;">*</span>
+          <span style="color: red;" id="num2error"></span>
+          <br><br>
+          <button type="button" id="btn">Add</button><br><br>
+          <div id="mydiv">
+
+          </div>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <script src="./jequry.js"></script>
+
+           <script>
+        $(document).ready(function(){
+          
+           var validate=(c1,err)=>{
+            var ci = $(c1).val();
+           
+            if(ci=="test"){
+               $(err).html("please select at least one City");     
+               return false;
+            }else{
+                    
+              $(err).html("");     
+               return true;   
+            }
+
+           }
+
+          $("#btn").click(function() {
+        
+       var flag = validate('select option:selected','#num1error');          
+              if(flag){
+           
+
+          var city = $("select option:selected").val();          
+             
+          $('div').html(city);
+          }
+          })
+
+        })
+
+           </script>
+</head>
+<body>
+      <label>Choose City </label>
+
+      <select name="city" id="c1">
+      <option value="test">--choose city--</option>
+      <option value="Pune">Pune</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="SambhajiNagar">SambhajiNagar</option>
+      <option value="Noida">Noida</option>
+      </select><span style="color: red;">*</span>
+      <span style="color: red;" id="num1error"></span>
+      <br><br>
+      <button type="button" id="btn" >Add City</button><br><br>
+      <div>
+
+      </div>
+</body>
+</html>

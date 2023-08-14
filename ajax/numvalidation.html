@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+
+          <script>
+             var add=()=>{
+              
+                    var a = parseInt(document.getElementById('n1').value);
+                    var b = parseInt(document.getElementById('n2').value);
+                    var ans = a+b;
+                    document.getElementById("id").value =ans ;
+             }
+
+          </script>
+</head>
+<body>
+          Number 1 : <input type="text" name="n1" id="n1" />
+          <br/><br/>
+          Number 2 : <input type="text" name="n2" id="n2">
+          <br/><br/>
+          Rusult : <input type="text" name="id" id="id" disabled/>
+          <br/><br/>
+          <button type="button" id="btn" name="btn" onclick="add()">Addition</button>
+
+
+</body>
+</html>
